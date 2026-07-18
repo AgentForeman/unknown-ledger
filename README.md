@@ -1,6 +1,6 @@
-# I taught my AI to say "I don't know" — and it stopped losing my money
+# I stopped trying to make my AI right. I made it keep books instead.
 
-> **TL;DR**: I'm a former construction site manager. I can't read code. AI agents built and run my automated trading system. The thing that saved my account wasn't a smarter model — it was a constitution that forces agents to keep an honest ledger of what they know versus what they're making up. The rules file is right here: [`LEDGER.md`](./LEDGER.md). Steal it. The essay below is why the file alone won't save you.
+> **TL;DR**: I'm a former construction site manager. I can't read code. AI agents built and run my automated trading system. What changed everything wasn't a smarter model — it was a constitution that forces agents to keep an honest ledger of what they know versus what they're making up. The rules file is right here: [`LEDGER.md`](./LEDGER.md). Steal it. The essay below is why the file alone won't save you.
 
 ---
 
@@ -8,7 +8,7 @@ Until last year I worked on construction sites. Site manager. I couldn't write c
 
 And yet every weekday morning, a stock-trading bot that AI agents wrote runs on my machine. It took four months. The agents wrote every line. I can't read any of them.
 
-At first I lost money. Then I stopped losing money. If you ask me for the secret, the answer is going to sound anticlimactic: **I didn't make the AI smarter. I made it admit what it didn't know.**
+At first I lost money. Then the bleeding stopped — and here is the ledger entry my own rules force me to write about that sentence: part of it is that the system currently trades in simulation while we validate a major change, and I will not claim returns I can't tag [CONFIRMED]. What I can defend is what actually changed: **I didn't make the AI smarter. I made it admit what it didn't know.**
 
 That's what this post is about. There's no trading alpha here. Only the rules I use to govern the agents.
 
@@ -55,7 +55,7 @@ It works. In one recent day my agent declared "undecidable" six times. Without t
 
 Here's the case that still scares me. My bot has a gatekeeper rule that blocks buying certain stocks. One day I noticed it was blocking names that money was visibly pouring into. Looked wasteful. I asked the AI; it showed me charts — the blocked stocks rose about 5% on average afterward. *"See? The gatekeeper is kicking away free meals."* I was one step from disabling the rule.
 
-Before pulling the trigger, I made it run one more question: *"Don't tell me whether they went up. Tell me what my account balance would be if we had actually bought them."* The answer came back: **minus 75 percentage points over 53 trading days.**
+Before pulling the trigger, I made it run one more question: *"Don't tell me whether they went up. Tell me what my account balance would be if we had actually bought them."* The answer came back: **minus 75 percentage points over 53 trading days.** (Ledger discipline, applied to my own story: that number is a simulated counterfactual — a reference figure, never a result. And its bias runs one way: the simulation assumes perfect fills, so reality would likely have been *worse*.)
 
 How is that possible? The stocks did rise — *after* first dipping hard. My bot auto-stops-out below a threshold, so in reality it would have **been stopped out before the rise ever arrived.** The question "how much did it go up?" is structurally blind to that stop-loss. Statistics that only look up only say nice things.
 
@@ -87,7 +87,7 @@ When in doubt, grade one level up. The test is a single question: *"Could this c
 
 Before writing this post, I ran an experiment. I pasted our full rulebook — word for word — into a fresh, unrelated AI session, and gave it the kind of judgment problems we handle daily.
 
-It passed **1 out of 8**.
+It passed **1 out of 8**. (One session, eight problems — a small sample, and I hold it as one. But the direction was not subtle.)
 
 Same file. Same words. So now I know: the thing that works was never the file. It was everything *around* the file — months of accumulated case law, a second enforcement layer of procedures, and a human who keeps asking *"confirmed by looking at what?"*
 
@@ -156,5 +156,7 @@ There's no return-rate flex here. The market regrades that daily. What I can sta
 *It doesn't copy money yet. But the books are honest, and that turned out to be the harder problem.*
 
 ---
+
+**Errata (2026-07-17, the day after publishing).** I had a reviewer model audit this essay against LEDGER.md — the file's rules, turned on the file's own advertisement. It caught three violations: the original title promised a money outcome the body refuses to back (an [INFERRED] claim dressed as [CONFIRMED]); the −75pp figure was presented as a result without its counterfactual passport; and a verdict leaned on n=8 without a small-sample label. All three are fixed above. This section stays as the scar — if the rules only applied to my agents and never to me, they'd be decoration.
 
 **P.S. — this constitution is alive.** Three days ago we caught a new failure mode (an executor model that only ever looks exactly where you point) and amended the constitution with a sixth principle — *Sight: "Questions arrive as fragments, but the world is not fragmented. Finishing the fragment you were handed and finishing the problem are different jobs — mine is the latter."* The amendment is currently under a pre-registered freeze-and-observe window: we don't touch the rules again until real usage data judges whether it worked. When the verdict lands, this repo gets updated — dated, labeled, and with the cause of death attached if it fails. That's the whole method, applied to itself.
